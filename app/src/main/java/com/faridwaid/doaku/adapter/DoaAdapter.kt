@@ -1,11 +1,15 @@
 package com.faridwaid.doaku.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
+import com.faridwaid.doaku.activity.DetailDoaActivity
+import com.faridwaid.doaku.activity.FavoriteActivity
 import com.faridwaid.doaku.model.DoaResponse
 
 class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter<DoaAdapter.PostViewHolder>() {
@@ -27,6 +31,31 @@ class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: PostViewHolder, position: Int) {
         holder.bind(list[position])
+
+        val dataDoa = list[position]
+
+        val mContext = holder.itemView.context
+
+        holder.itemView.setOnClickListener{
+            val moveDetail = Intent(mContext, DetailDoaActivity::class.java)
+            moveDetail.putExtra(DetailDoaActivity.EXTRA_ID, dataDoa.id)
+            moveDetail.putExtra(DetailDoaActivity.EXTRA_DOA, dataDoa.doa)
+            moveDetail.putExtra(DetailDoaActivity.EXTRA_AYAT, dataDoa.ayat)
+            moveDetail.putExtra(DetailDoaActivity.EXTRA_LATIN, dataDoa.latin)
+            moveDetail.putExtra(DetailDoaActivity.EXTRA_ARTINYA, dataDoa.artinya)
+            mContext.startActivity(moveDetail)
+        }
+
+        var favoritkan: ImageView = holder.itemView.findViewById(R.id.favoritkan)
+        favoritkan.setOnClickListener {
+            val moveToFavorite = Intent(mContext, FavoriteActivity::class.java)
+            moveToFavorite.putExtra(FavoriteActivity.EXTRA_ID, dataDoa.id)
+            moveToFavorite.putExtra(FavoriteActivity.EXTRA_DOA, dataDoa.doa)
+            moveToFavorite.putExtra(FavoriteActivity.EXTRA_AYAT, dataDoa.ayat)
+            moveToFavorite.putExtra(FavoriteActivity.EXTRA_LATIN, dataDoa.latin)
+            moveToFavorite.putExtra(FavoriteActivity.EXTRA_ARTINYA, dataDoa.artinya)
+            mContext.startActivity(moveToFavorite)
+        }
     }
 
     override fun getItemCount(): Int = list.size

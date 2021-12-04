@@ -12,6 +12,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doaku">
         <activity
+            android:name=".activity.FavoriteActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.DetailDoaActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.DoaActivity"
             android:exported="false" />
         <activity

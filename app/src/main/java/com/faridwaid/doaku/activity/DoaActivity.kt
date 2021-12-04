@@ -1,7 +1,10 @@
 package com.faridwaid.doaku.activity
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.TextUtils
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,6 +26,13 @@ class DoaActivity : AppCompatActivity() {
 
         //menampilkan list doa
         showListDoa()
+
+        //menambah favorite doa
+        favoriteDoa()
+    }
+
+    private fun favoriteDoa() {
+
     }
 
     private fun showListDoa() {

@@ -32,13 +32,12 @@
             android:text="Doa"
             android:layout_marginTop="25dp"/>
 
-        <ImageView
-            android:id="@+id/favoritkan"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:src="@drawable/lover"
-            android:layout_marginLeft="288dp"
-            android:layout_marginTop="25dp" />
+<!--        <ImageView-->
+<!--            android:layout_width="25dp"-->
+<!--            android:layout_height="25dp"-->
+<!--            android:src="@drawable/lover"-->
+<!--            android:layout_marginLeft="288dp"-->
+<!--            android:layout_marginTop="25dp" />-->
 
 
     </androidx.cardview.widget.CardView>

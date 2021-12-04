@@ -15,6 +15,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        //Menyembunyikan support action bar
+//        supportActionBar?.hide()
+
         //memanggil fungsi untuk menampilkan hari dan tanggal
         setDate()
 
