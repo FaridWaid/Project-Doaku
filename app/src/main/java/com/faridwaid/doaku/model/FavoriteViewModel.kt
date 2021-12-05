@@ -20,14 +20,14 @@ class FavoriteViewModel(application: Application): AndroidViewModel(application)
     init {
         favoriteDB = FavoriteRoomDatabase.getDatabase(application)
         favoriteDao = favoriteDB?.favoriteDao()
-        list = favoriteDao?.getListFavorite()!!
+        list = favoriteDao?.getListFavorites()!!
     }
 
     fun insert(doaFavorite: String, ayatFavorite: String, latinFavorite: String, artiFavorite: String){
         insertToDatabase(doaFavorite, ayatFavorite, latinFavorite, artiFavorite)
     }
 
-    fun getListNotes(): LiveData<List<Favorite>> = list
+    fun getListFavorites(): LiveData<List<Favorite>> = list
 
     private fun insertToDatabase(doaFavorite: String, ayatFavorite: String, latinFavorite: String, artiFavorite: String) {
         CoroutineScope(Dispatchers.IO).launch {

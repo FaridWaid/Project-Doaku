@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
+import com.faridwaid.doaku.activity.CreateDoaFavorite
 import com.faridwaid.doaku.activity.DetailDoaActivity
 import com.faridwaid.doaku.activity.FavoriteActivity
 import com.faridwaid.doaku.model.DoaResponse
@@ -16,10 +18,21 @@ class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter
 
     inner class PostViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvResponse: TextView = itemView.findViewById(R.id.tv_doa_name)
+        val mContext = itemView.context
+        var favoritkan: ImageView = itemView.findViewById(R.id.favoritkan)
         fun bind(doa: DoaResponse){
             with(itemView){
                 val text = "${doa.doa}"
                 tvResponse.text = text
+                favoritkan.setOnClickListener {
+                    val moveToFavorite = Intent(mContext, CreateDoaFavorite::class.java)
+                    moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_ID, doa.id)
+                    moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_DOA, doa.doa)
+                    moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_AYAT, doa.ayat)
+                    moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_LATIN, doa.latin)
+                    moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_ARTINYA, doa.artinya)
+                    mContext.startActivity(moveToFavorite)
+                }
             }
         }
     }
@@ -44,17 +57,6 @@ class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter
             moveDetail.putExtra(DetailDoaActivity.EXTRA_LATIN, dataDoa.latin)
             moveDetail.putExtra(DetailDoaActivity.EXTRA_ARTINYA, dataDoa.artinya)
             mContext.startActivity(moveDetail)
-        }
-
-        var favoritkan: ImageView = holder.itemView.findViewById(R.id.favoritkan)
-        favoritkan.setOnClickListener {
-            val moveToFavorite = Intent(mContext, FavoriteActivity::class.java)
-            moveToFavorite.putExtra(FavoriteActivity.EXTRA_ID, dataDoa.id)
-            moveToFavorite.putExtra(FavoriteActivity.EXTRA_DOA, dataDoa.doa)
-            moveToFavorite.putExtra(FavoriteActivity.EXTRA_AYAT, dataDoa.ayat)
-            moveToFavorite.putExtra(FavoriteActivity.EXTRA_LATIN, dataDoa.latin)
-            moveToFavorite.putExtra(FavoriteActivity.EXTRA_ARTINYA, dataDoa.artinya)
-            mContext.startActivity(moveToFavorite)
         }
     }
 

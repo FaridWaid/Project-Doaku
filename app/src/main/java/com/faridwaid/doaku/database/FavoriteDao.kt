@@ -12,6 +12,6 @@ interface FavoriteDao {
     fun insert(favorite: Favorite)
 
     @Query("SELECT * FROM favorites")
-    fun getListFavorite(): LiveData<List<Favorite>>
+    fun getListFavorites(): LiveData<List<Favorite>>
 
 }

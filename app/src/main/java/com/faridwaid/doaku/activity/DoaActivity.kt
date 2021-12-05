@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
 import com.faridwaid.doaku.adapter.DoaAdapter
+import com.faridwaid.doaku.adapter.FavoriteAdapter
 import com.faridwaid.doaku.api.RetrofitClient
 import com.faridwaid.doaku.model.DoaResponse
 import retrofit2.Call
@@ -19,6 +20,7 @@ import retrofit2.Response
 class DoaActivity : AppCompatActivity() {
 
     private var list = ArrayList<DoaResponse>()
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -32,7 +34,6 @@ class DoaActivity : AppCompatActivity() {
     }
 
     private fun favoriteDoa() {
-
     }
 
     private fun showListDoa() {

@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -23,11 +24,6 @@ class FavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
 
-        val tIdDoa = intent.getStringExtra(FavoriteActivity.EXTRA_ID)
-        val tJudulDoa = intent.getStringExtra(FavoriteActivity.EXTRA_DOA)
-        val tAyatDoa = intent.getStringExtra(FavoriteActivity.EXTRA_AYAT)
-        val tLatinDoa = intent.getStringExtra(FavoriteActivity.EXTRA_LATIN)
-        val tArtiDoa = intent.getStringExtra(FavoriteActivity.EXTRA_ARTINYA)
 
         //menampilkan list doa
         adapter = FavoriteAdapter()
@@ -40,7 +36,7 @@ class FavoriteActivity : AppCompatActivity() {
         var rvNote : RecyclerView = findViewById(R.id.rv_doa)
         rvNote.setHasFixedSize(true)
         rvNote.layoutManager = LinearLayoutManager(this)
-        model.getListNotes().observe(this, object : Observer<List<Favorite>> {
+        model.getListFavorites().observe(this, object : Observer<List<Favorite>> {
             override fun onChanged(t: List<Favorite>?) {
                 if (t != null) {
                     adapter.setListNote(t)
@@ -52,12 +48,28 @@ class FavoriteActivity : AppCompatActivity() {
 
     }
 
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        resultCode == RESULT_OK
+        if (requestCode == CREATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK) {
+            val titleDoa = data?.getStringExtra(CreateDoaFavorite.NEW_DOA)
+            val ayatDoa = data?.getStringExtra(CreateDoaFavorite.NEW_AYAT)
+            val latineDoa = data?.getStringExtra(CreateDoaFavorite.NEW_LATIN)
+            val artiDoa = data?.getStringExtra(CreateDoaFavorite.NEW_ARTI)
+            if (titleDoa != null && ayatDoa != null && latineDoa != null && artiDoa != null) {
+                model.insert(titleDoa, ayatDoa, latineDoa, artiDoa)
+            }
+            Toast.makeText(this, "Doa Berhasil Ditambahkan!", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Doa Tidak Berhasil Ditambahkan!", Toast.LENGTH_SHORT).show()
+        }
+    }
+
     companion object {
-        const val EXTRA_ID = "extra_id"
-        const val EXTRA_DOA = "extra_doa"
-        const val EXTRA_AYAT = "extra_ayat"
-        const val EXTRA_LATIN = "extra_latin"
-        const val EXTRA_ARTINYA = "extra_artinya"
+        const val NEW_DOA = "new_doa"
+        const val NEW_AYAT = "new_ayat"
+        const val NEW_LATIN = "new_latin"
+        const val NEW_ARTI = "new_arti"
         const val CREATE_NOTE_REQUEST_CODE = 1
         const val UPDATE_NOTE_REQUEST_CODE = 2
     }

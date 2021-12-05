@@ -23,6 +23,32 @@ class MainActivity : AppCompatActivity() {
 
         //pindah ke halaman doa
         doaActivity()
+
+        //pindah ke halaman favorite
+        favoriteActivity()
+
+        //pindah ke halaman note
+        noteActivity()
+    }
+
+    private fun noteActivity() {
+        var toCatatan: CardView = findViewById(R.id.catatan)
+
+        toCatatan.setOnClickListener {
+            Intent(this@MainActivity, NoteActivity::class.java).also {
+                startActivity(it)
+            }
+        }
+    }
+
+    private fun favoriteActivity() {
+        var toFavorite: CardView = findViewById(R.id.favorite)
+
+        toFavorite.setOnClickListener {
+            Intent(this@MainActivity, FavoriteActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     private fun doaActivity() {
