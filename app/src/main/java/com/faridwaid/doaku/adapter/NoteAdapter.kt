@@ -1,8 +1,10 @@
 package com.faridwaid.doaku.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
@@ -18,10 +20,10 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
     }
 
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-        val tvNote : TextView = itemView.findViewById(R.id.tv_note)
+        val tvTitle : TextView = itemView.findViewById(R.id.tv_title_note)
         fun bind(note: Note){
             with(itemView){
-                tvNote.text = note.note
+                tvTitle.text = note.title
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(note) }
             }
         }

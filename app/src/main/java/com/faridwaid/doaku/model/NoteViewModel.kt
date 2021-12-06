@@ -23,17 +23,18 @@ class NoteViewModel(application: Application) : AndroidViewModel(application) {
         list = noteDao?.getListNotes()!!
     }
 
-    fun insert(textNote: String){
-        insertToDatabase(textNote)
+    fun insert(titleNote: String, textNote: String){
+        insertToDatabase(titleNote, textNote)
     }
 
     fun getListNotes(): LiveData<List<Note>> = list
 
-    private fun insertToDatabase(textNote: String) {
+    private fun insertToDatabase(titleNote: String, textNote: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val noteId = UUID.randomUUID().toString()
             val note = Note(
                 noteId,
+                titleNote,
                 textNote
             )
             noteDao?.insert(note)

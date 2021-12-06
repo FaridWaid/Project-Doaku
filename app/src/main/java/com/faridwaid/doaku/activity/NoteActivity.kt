@@ -4,8 +4,10 @@ import android.content.DialogInterface
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.ItemTouchHelper
@@ -21,7 +23,8 @@ class NoteActivity : AppCompatActivity() {
 
     companion object{
         const val CREATE_NOTE_REQUEST_CODE = 1
-        const val UPDATE_NOTE_REQUEST_CODE = 2
+        const val DETAIL_NOTE_REQUEST_CODE = 2
+        const val UPDATE_NOTE_REQUEST_CODE = 3
     }
 
     private lateinit var model: NoteViewModel
@@ -41,6 +44,7 @@ class NoteActivity : AppCompatActivity() {
                 startActivityForResult(it, CREATE_NOTE_REQUEST_CODE)
             }
         }
+
     }
 
     private fun showListNotes() {
@@ -58,10 +62,14 @@ class NoteActivity : AppCompatActivity() {
         })
         adapter.setOnItemClickCallback(object : NoteAdapter.OnItemClickCallback{
             override fun onItemClicked(data: Note) {
-                Intent(this@NoteActivity, EditNoteActivity::class.java).also {
-                    it.putExtra(EditNoteActivity.NOTE_ID, data.id)
+                Intent(this@NoteActivity, DetailNoteActivity::class.java).also {
+                    it.putExtra(DetailNoteActivity.NOTE_ID, data.id)
+                    it.putExtra(DetailNoteActivity.NOTE_TITLE, data.title)
+                    it.putExtra(DetailNoteActivity.NOTE, data.note)
                     startActivityForResult(it, UPDATE_NOTE_REQUEST_CODE)
                 }
+
+
             }
 
         })
@@ -84,20 +92,24 @@ class NoteActivity : AppCompatActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == CREATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK) {
-            val note = data?.getStringExtra(CreateNoteActivity.NEW_NOTE)
-            if (note != null) {
-                model.insert(note)
+            val note = data?.getStringExtra(CreateNoteActivity.NEW_NOTE)!!
+            val title = data?.getStringExtra(CreateNoteActivity.NEW_TITLE)!!
+            if (note != null && title!= null) {
+                model.insert(title, note)
             }
             Toast.makeText(this, "Note Berhasil Ditambahkan!", Toast.LENGTH_SHORT).show()
         } else if (requestCode == UPDATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK){
-            val noteId = data?.getStringExtra(EditNoteActivity.NOTE_ID)!!
-            val updatedNote = data?.getStringExtra(EditNoteActivity.UPDATE_NOTE)!!
+            val noteId = data?.getStringExtra(DetailNoteActivity.ID_NOTE)!!
+            val updatedTitle = data?.getStringExtra(DetailNoteActivity.UPDATE_TITLE)!!
+            val updatedNote = data?.getStringExtra(DetailNoteActivity.UPDATE_NOTE)!!
             val note = Note(
                 noteId,
+                updatedTitle,
                 updatedNote
             )
             model.update(note)
             Toast.makeText(this, "Note Berhasil Diupdate!", Toast.LENGTH_SHORT).show()
+            showListNotes()
         }
     }
 

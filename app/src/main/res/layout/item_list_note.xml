@@ -1,23 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="80dp"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="2dp">
+    android:layout_height="wrap_content"
+    android:layout_gravity="top"
+    android:padding="15dp">
 
-    <LinearLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center" >
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-10dp">
+
+
+        <ImageView
+            android:id="@+id/back_image"
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
-            android:id="@+id/tv_note"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="8dp"
-            tools:text="Catatan Kita" />
-    </LinearLayout>
+            android:id="@+id/tv_title_note"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:gravity="center"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="35dp"
+            android:text="Catatan" />
 
-</androidx.cardview.widget.CardView>
+
+        <ImageView
+            android:id="@+id/favoritkan"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:src="@drawable/trash"
+            android:layout_marginLeft="250dp"
+            android:layout_marginTop="10dp" />
+
+
+    </androidx.cardview.widget.CardView>
+
+</FrameLayout>

@@ -12,6 +12,10 @@ data class Note (
     var id: String,
 
     @NonNull
+    @ColumnInfo(name = "title")
+    var title: String,
+
+    @NonNull
     @ColumnInfo(name = "note")
     var note: String
 )
