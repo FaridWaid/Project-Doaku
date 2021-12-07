@@ -117,6 +117,7 @@
                 </androidx.cardview.widget.CardView>
 
                 <androidx.cardview.widget.CardView
+                    android:id="@+id/jadwal_sholat"
                     android:layout_width="140dp"
                     android:layout_height="140dp"
                     android:layout_margin="16dp"

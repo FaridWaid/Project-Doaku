@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://reqres.in/api/"
+    private const val BASE_URL = "https://api.pray.zone/v2/times/"
 
     val instance: Api by lazy {
         val retrofit = Retrofit.Builder()

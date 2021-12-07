@@ -24,6 +24,20 @@ class FavoriteActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_favorite)
 
+        val data = this.intent
+
+//        val titleDoa = data?.getStringExtra(NEW_DOA)
+//        val ayatDoa = data?.getStringExtra(NEW_AYAT)
+//        val latineDoa = data?.getStringExtra(NEW_LATIN)
+//        val artiDoa = data?.getStringExtra(NEW_ARTI)
+//        if (titleDoa != null && ayatDoa != null && latineDoa != null && artiDoa != null) {
+//            val oke1: String = titleDoa.toString()
+//            val oke2: String = ayatDoa.toString()
+//            val oke3: String = latineDoa.toString()
+//            val oke4: String = artiDoa.toString()
+//            model.insert(oke1, oke2, oke3, oke4)
+//            Toast.makeText(this, "Doa Berhasil Ditambahkan!", Toast.LENGTH_SHORT).show()
+//        }
 
         //menampilkan list doa
         adapter = FavoriteAdapter()
@@ -50,12 +64,11 @@ class FavoriteActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        resultCode == RESULT_OK
         if (requestCode == CREATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK) {
-            val titleDoa = data?.getStringExtra(CreateDoaFavorite.NEW_DOA)
-            val ayatDoa = data?.getStringExtra(CreateDoaFavorite.NEW_AYAT)
-            val latineDoa = data?.getStringExtra(CreateDoaFavorite.NEW_LATIN)
-            val artiDoa = data?.getStringExtra(CreateDoaFavorite.NEW_ARTI)
+            val titleDoa = data?.getStringExtra(NEW_DOA)
+            val ayatDoa = data?.getStringExtra(NEW_AYAT)
+            val latineDoa = data?.getStringExtra(NEW_LATIN)
+            val artiDoa = data?.getStringExtra(NEW_ARTI)
             if (titleDoa != null && ayatDoa != null && latineDoa != null && artiDoa != null) {
                 model.insert(titleDoa, ayatDoa, latineDoa, artiDoa)
             }

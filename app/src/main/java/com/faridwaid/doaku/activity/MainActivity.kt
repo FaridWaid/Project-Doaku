@@ -24,11 +24,24 @@ class MainActivity : AppCompatActivity() {
         //pindah ke halaman doa
         doaActivity()
 
+        //pindah ke halaman pray time
+        prayTimeActivity()
+
         //pindah ke halaman favorite
         favoriteActivity()
 
         //pindah ke halaman note
         noteActivity()
+    }
+
+    private fun prayTimeActivity() {
+        var toPrayTime: CardView = findViewById(R.id.jadwal_sholat)
+
+        toPrayTime.setOnClickListener {
+            Intent(this@MainActivity, PrayTimeActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     private fun noteActivity() {
