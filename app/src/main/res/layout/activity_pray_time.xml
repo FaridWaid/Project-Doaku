@@ -23,18 +23,66 @@
         android:src="@drawable/title_box" />
 
     <TextView
+        android:id="@+id/yuhu"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
         android:gravity="center"
-        android:text="Doa Favorite"
+        android:text="Jadwal Sholat"
         android:textColor="@color/black"
         android:textSize="20sp" />
 
-    <LinearLayout
+    <TextView
+        android:id="@+id/tanggal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" >
+        android:layout_marginTop="125dp"
+        android:gravity="left"
+        android:text="Tanggal"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnGantiTanggal"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:gravity="center"
+        android:text="Pilih Tanggal" />
+
+    <EditText
+        android:id="@+id/kota"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="125dp"
+        android:gravity="right"
+        android:text="Kota"
+        android:layout_marginLeft="210dp"
+        android:textColor="@color/black"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnGantiKota"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:layout_marginLeft="260dp"
+        android:text="Ganti Kota" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_marginTop="210dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/subuh"
@@ -42,8 +90,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Doa Favorite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="-50dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/duhur"
@@ -51,8 +110,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Doa Favorite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="-50dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/asar"
@@ -60,8 +130,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Doa Favorite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="-50dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/magrib"
@@ -69,8 +150,19 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Doa Favorite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="-50dp"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:scaleX="7"
+            android:scaleY="8"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="60dp"
+            android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/isyak"
@@ -78,8 +170,10 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Doa Favorite"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:layout_marginTop="-50dp"/>
 
     </LinearLayout>
 
