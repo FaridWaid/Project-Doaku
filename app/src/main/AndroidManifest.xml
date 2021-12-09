@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doaku">
         <activity
+            android:name=".activity.AboutDeveloperActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.PrayTimeActivity"
             android:exported="false" />
         <activity

@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.constraintlayout.widget.ConstraintLayout
 import com.faridwaid.doaku.R
 import java.text.SimpleDateFormat
 import java.util.*
@@ -32,6 +33,19 @@ class MainActivity : AppCompatActivity() {
 
         //pindah ke halaman note
         noteActivity()
+
+        //pindah ke halaman about developer
+        aboutDeveloperActivity()
+    }
+
+    private fun aboutDeveloperActivity() {
+        var toAboutDeveloper: ConstraintLayout = findViewById(R.id.about_developer)
+
+        toAboutDeveloper.setOnClickListener {
+            Intent(this@MainActivity, AboutDeveloperActivity::class.java).also {
+                startActivity(it)
+            }
+        }
     }
 
     private fun prayTimeActivity() {
