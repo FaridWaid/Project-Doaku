@@ -4,21 +4,15 @@ import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
-import com.faridwaid.doaku.activity.CreateDoaFavorite
 import com.faridwaid.doaku.activity.DetailDoaActivity
-import com.faridwaid.doaku.activity.FavoriteActivity
 import com.faridwaid.doaku.model.DoaResponse
 
 class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter<DoaAdapter.PostViewHolder>() {
-
     inner class PostViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         val tvResponse: TextView = itemView.findViewById(R.id.tv_doa_name)
-        val mContext = itemView.context
         fun bind(doa: DoaResponse){
             with(itemView){
                 val text = "${doa.doa}"
@@ -49,17 +43,8 @@ class DoaAdapter(private val list: ArrayList<DoaResponse>): RecyclerView.Adapter
             mContext.startActivity(moveDetail)
         }
 
-        var favoritkan: ImageView = holder.itemView.findViewById(R.id.favoritkan)
-        favoritkan.setOnClickListener {
-            val moveToFavorite = Intent(mContext, CreateDoaFavorite::class.java)
-            moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_ID, dataDoa.id)
-            moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_DOA, dataDoa.doa)
-            moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_AYAT, dataDoa.ayat)
-            moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_LATIN, dataDoa.latin)
-            moveToFavorite.putExtra(CreateDoaFavorite.EXTRA_ARTINYA, dataDoa.artinya)
-            mContext.startActivity(moveToFavorite)
-        }
     }
 
     override fun getItemCount(): Int = list.size
+
 }

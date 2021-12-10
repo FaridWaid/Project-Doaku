@@ -1,16 +1,12 @@
 package com.faridwaid.doaku.activity
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
-import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.faridwaid.doaku.R
 import com.faridwaid.doaku.adapter.DoaAdapter
-import com.faridwaid.doaku.adapter.FavoriteAdapter
 import com.faridwaid.doaku.api.RetrofitClient
 import com.faridwaid.doaku.model.DoaResponse
 import retrofit2.Call
