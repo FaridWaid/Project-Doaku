@@ -15,8 +15,6 @@ interface Api {
 
     @GET("day.json")
     fun getPrayTime(
-//        @Query("city") city: String,
-//        @Path("date") date: String
         @QueryMap parameters: HashMap<String, String>
     ): Call<PrayTimeResponseOke>
 }

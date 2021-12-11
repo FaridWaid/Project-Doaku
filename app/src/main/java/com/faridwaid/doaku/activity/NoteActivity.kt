@@ -29,10 +29,17 @@ class NoteActivity : AppCompatActivity() {
 
     private lateinit var model: NoteViewModel
     private lateinit var adapter: NoteAdapter
+    private var title: String = "Daftar Catatan"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_note)
+
+        val actionBar = supportActionBar
+        actionBar!!.title = title
+
+        //back button
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         adapter = NoteAdapter()
         model = ViewModelProvider(this).get(NoteViewModel::class.java)
@@ -47,6 +54,7 @@ class NoteActivity : AppCompatActivity() {
 
     }
 
+    //fungsi untuk menampilkan semua data
     private fun showListNotes() {
         var rvNote : RecyclerView = findViewById(R.id.rvNote)
         rvNote.setHasFixedSize(true)
@@ -60,7 +68,9 @@ class NoteActivity : AppCompatActivity() {
             }
 
         })
+        //ketika salah satu item pada recycler view di klik
         adapter.setOnItemClickCallback(object : NoteAdapter.OnItemClickCallback{
+            //pindah ke activity lain ketika item di klik
             override fun onItemClicked(data: Note) {
                 Intent(this@NoteActivity, DetailNoteActivity::class.java).also {
                     it.putExtra(DetailNoteActivity.NOTE_ID, data.id)
@@ -68,11 +78,16 @@ class NoteActivity : AppCompatActivity() {
                     it.putExtra(DetailNoteActivity.NOTE, data.note)
                     startActivityForResult(it, UPDATE_NOTE_REQUEST_CODE)
                 }
+            }
 
-
+            //hapus item yang diklik
+            override fun onDeleteItem(data: Note) {
+                deleteDialog(data)
+                showListNotes()
             }
 
         })
+        //hapus item dengan swipe ke kiri
         ItemTouchHelper(object : ItemTouchHelper.SimpleCallback(0, ItemTouchHelper.LEFT){
             override fun onMove(
                 recyclerView: RecyclerView,
@@ -89,8 +104,10 @@ class NoteActivity : AppCompatActivity() {
         }).attachToRecyclerView(rvNote)
     }
 
+    //fungsi ketika activity dijalankan
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
+        //ketika membuat note baru
         if (requestCode == CREATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK) {
             val note = data?.getStringExtra(CreateNoteActivity.NEW_NOTE)!!
             val title = data?.getStringExtra(CreateNoteActivity.NEW_TITLE)!!
@@ -98,6 +115,7 @@ class NoteActivity : AppCompatActivity() {
                 model.insert(title, note)
             }
             Toast.makeText(this, "Note Berhasil Ditambahkan!", Toast.LENGTH_SHORT).show()
+            //ketika update note
         } else if (requestCode == UPDATE_NOTE_REQUEST_CODE && resultCode == RESULT_OK){
             val noteId = data?.getStringExtra(DetailNoteActivity.ID_NOTE)!!
             val updatedTitle = data?.getStringExtra(DetailNoteActivity.UPDATE_TITLE)!!
@@ -113,11 +131,12 @@ class NoteActivity : AppCompatActivity() {
         }
     }
 
+    //fungsi untuk menampilkan alert dialog ketika ingin menghapus item
     private fun deleteDialog(note: Note){
         val alertDialog = AlertDialog.Builder(this)
         alertDialog.apply {
             setTitle("Konfirmasi")
-            setMessage("Yakin hapus ${note.note}?")
+            setMessage("Yakin hapus catatan: ${note.title}?")
             setNegativeButton("Batal", DialogInterface.OnClickListener { dialogInterface, i ->
                 dialogInterface.dismiss()
             })
@@ -127,6 +146,12 @@ class NoteActivity : AppCompatActivity() {
             })
         }
         alertDialog.show()
+    }
+
+    //fungsi back button
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 
 }

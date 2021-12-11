@@ -4,136 +4,109 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/half_primary"
-    tools:context=".activity.DetailDoaActivity">
+    tools:context=".activity.DetailDoaActivity"
+    android:background="@color/half_primary">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="400dp"
-            android:layout_marginTop="-140dp"
-            android:src="@drawable/title_box" />
+            android:layout_marginTop="-150dp"
+            android:src="@drawable/title" />
 
         <TextView
             android:id="@+id/title_doa"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="45dp"
+            android:layout_marginTop="35dp"
             android:gravity="center"
             android:text="judul doa"
             android:textStyle="bold"
             android:textColor="@color/black"
             android:textSize="18sp" />
 
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+        <ScrollView
             android:layout_marginTop="100dp"
-            android:src="@drawable/back_doa" />
-
-        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:layout_marginTop="150dp">
+            android:layout_height="match_parent"
+            android:background="@drawable/back_doa">
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="5dp"
-                android:gravity="center"
-                android:text="Ayat Doa:"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:layout_marginTop="35dp">
 
-            <TextView
-                android:id="@+id/ayat_doa"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:gravity="right"
-                android:text="ayat doa"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:gravity="center"
+                        android:text="Ayat Doa:"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Latin Doa:"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/ayat_doa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginRight="45dp"
+                        android:gravity="right"
+                        android:layout_gravity="center"
+                        android:text="ayat doa"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/latin_doa"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="-5dp"
-                android:gravity="left"
-                android:text="latin doa"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Latin Doa:"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:text="Arti Doa:"
-                android:textColor="@color/black"
-                android:textSize="18sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/latin_doa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginTop="-5dp"
+                        android:gravity="left"
+                        android:layout_gravity="center"
+                        android:text="latin doa"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
 
-            <TextView
-                android:id="@+id/arti_doa"
-                android:layout_width="280dp"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginTop="-5dp"
-                android:gravity="left"
-                android:text="arti doa"
-                android:textColor="@color/black"
-                android:textSize="16sp" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:text="Arti Doa:"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        android:textStyle="bold" />
 
-        </LinearLayout>
-
-
-
-
-
-
-
-
-
-        <!--    <androidx.cardview.widget.CardView-->
-        <!--        android:id="@+id/doadoa"-->
-        <!--        android:layout_width="80dp"-->
-        <!--        android:layout_height="60dp"-->
-        <!--        android:layout_marginTop="120dp"-->
-        <!--        app:cardCornerRadius="8dp" >-->
-
-        <!--        <LinearLayout-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent"-->
-        <!--            android:gravity="center"-->
-        <!--            android:orientation="vertical">-->
-
-        <!--            <ImageView-->
-        <!--                android:layout_width="20dp"-->
-        <!--                android:layout_height="20dp"-->
-        <!--                android:src="@drawable/lover" />-->
-
-        <!--            <TextView-->
-        <!--                android:layout_width="wrap_content"-->
-        <!--                android:layout_height="wrap_content"-->
-        <!--                android:text="Favoritkan!"-->
-        <!--                android:textColor="@color/black"-->
-        <!--                android:textSize="16sp" />-->
-
-<!--                </LinearLayout>-->
-
-        <!--    </androidx.cardview.widget.CardView>-->
-
+                    <TextView
+                        android:id="@+id/arti_doa"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="45dp"
+                        android:layout_marginRight="45dp"
+                        android:layout_marginTop="-5dp"
+                        android:gravity="left"
+                        android:layout_gravity="center"
+                        android:text="arti doa"
+                        android:textColor="@color/black"
+                        android:textSize="16sp" />
+                </LinearLayout>
+        </ScrollView>
+    </FrameLayout>
 </RelativeLayout>

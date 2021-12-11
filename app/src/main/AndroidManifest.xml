@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Doaku">
         <activity
+            android:name=".activity.FirstActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.AboutDeveloperActivity"
             android:exported="false" />
         <activity
@@ -24,16 +27,7 @@
             android:name=".activity.NoteActivity"
             android:exported="false" />
         <activity
-            android:name=".activity.EditNoteActivity"
-            android:exported="false" />
-        <activity
             android:name=".activity.CreateNoteActivity"
-            android:exported="false" />
-        <activity
-            android:name=".activity.CreateDoaFavorite"
-            android:exported="false" />
-        <activity
-            android:name=".activity.FavoriteActivity"
             android:exported="false" />
         <activity
             android:name=".activity.DetailDoaActivity"

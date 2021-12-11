@@ -7,14 +7,25 @@ import com.faridwaid.doaku.R
 
 class DetailDoaActivity : AppCompatActivity() {
 
+    //set title
+    private var title: String = "Informasi Detail Doa"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail_doa)
+
+        //action bar
+        val actionBar = supportActionBar
+        actionBar!!.title = title
+
+        //back button
+        actionBar.setDisplayHomeAsUpEnabled(true)
 
         //Menamilkan content doa
         setContentDoa()
     }
 
+    //fungsi untuk menampilkan doa
     private fun setContentDoa() {
         val tvSetTitle: TextView = findViewById(R.id.title_doa)
         val tvSetAyat: TextView = findViewById(R.id.ayat_doa)
@@ -41,6 +52,7 @@ class DetailDoaActivity : AppCompatActivity() {
         const val EXTRA_ARTINYA = "extra_artinya"
     }
 
+    //back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

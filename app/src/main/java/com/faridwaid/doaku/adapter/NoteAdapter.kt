@@ -21,10 +21,14 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     inner class NoteViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val tvTitle : TextView = itemView.findViewById(R.id.tv_title_note)
+        val hapusNote : ImageView = itemView.findViewById(R.id.hapus)
         fun bind(note: Note){
             with(itemView){
                 tvTitle.text = note.title
                 itemView.setOnClickListener { onItemClickCallback?.onItemClicked(note) }
+            }
+            hapusNote.setOnClickListener {
+                onItemClickCallback?.onDeleteItem(note)
             }
         }
     }
@@ -49,6 +53,7 @@ class NoteAdapter: RecyclerView.Adapter<NoteAdapter.NoteViewHolder>() {
 
     interface OnItemClickCallback {
         fun onItemClicked(data: Note)
+        fun onDeleteItem(data: Note)
     }
 
 }

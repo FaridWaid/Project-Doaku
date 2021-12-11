@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.17533783783783785" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/drawable/aboutdev_background.xml" value="0.17357859531772576" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/drawable/custom_button.xml" value="0.17357859531772576" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/drawable/dashborad_background.xml" value="0.17357859531772576" />
@@ -17,6 +18,7 @@
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_doa.xml" value="0.12568306010928962" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_edit_note.xml" value="0.15574324324324323" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_favorite.xml" value="0.16486486486486487" />
+        <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_first.xml" value="0.16486486486486487" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_main.xml" value="0.1793478260869565" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_note.xml" value="0.15574324324324323" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/activity_pray_time.xml" value="0.16486486486486487" />
@@ -24,6 +26,7 @@
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/item_list_doa.xml" value="0.2" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/item_list_favorite.xml" value="0.16486486486486487" />
         <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/layout/item_list_note.xml" value="0.1407103825136612" />
+        <entry key="..\:/Dev/Android_Learning/Doaku/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
       </map>
     </option>
   </component>

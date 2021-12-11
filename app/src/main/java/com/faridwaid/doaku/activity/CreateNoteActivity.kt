@@ -15,10 +15,21 @@ class CreateNoteActivity : AppCompatActivity() {
         val NEW_NOTE = "new_note"
     }
 
+    //set title
+    private var title: String = "Buat Catatan Baru"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_create_note)
 
+        //action bar
+        val actionBar = supportActionBar
+        actionBar!!.title = title
+
+        //back button
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+        //set untuk note baru
         val title_note : TextView = findViewById(R.id.title_note)
         val et_note : TextView = findViewById(R.id.et_note)
         val btn_save_note : Button = findViewById(R.id.btn_save_note)
@@ -36,6 +47,11 @@ class CreateNoteActivity : AppCompatActivity() {
             }
             finish()
         }
+    }
 
+    //back button
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

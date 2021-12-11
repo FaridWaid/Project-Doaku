@@ -7,35 +7,30 @@
     android:background="@color/half_primary"
     tools:context=".activity.DoaActivity">
 
-        <TextView
-            android:id="@+id/tvResponseCode"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:gravity="center"
-            android:textColor="@color/black" />
+            android:layout_height="match_parent" >
 
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="400dp"
-            android:layout_marginTop="-120dp"
-            android:src="@drawable/title_box" />
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="400dp"
+                    android:layout_marginTop="-150dp"
+                    android:src="@drawable/title" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:gravity="center"
-            android:text="Doa Sehari - hari"
-            android:textColor="@color/black"
-            android:textSize="20sp" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="35dp"
+                    android:gravity="center"
+                    android:text="Doa Sehari - hari"
+                    android:textColor="@color/black"
+                    android:textSize="20sp" />
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_doa"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="145dp"
-            tools:listitem="@layout/item_list_doa" />
-
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_doa"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="95dp"
+                    tools:listitem="@layout/item_list_doa" />
+        </FrameLayout>
 </RelativeLayout>

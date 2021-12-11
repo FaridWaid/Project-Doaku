@@ -15,25 +15,28 @@ import retrofit2.Response
 
 class DoaActivity : AppCompatActivity() {
 
+    //list dari doa - doa
     private var list = ArrayList<DoaResponse>()
-
+    //untuk title action bar
+    private var title: String = "Daftar Doa"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_doa)
 
+        //action bar
+        val actionBar = supportActionBar
+        actionBar!!.title = title
+
+        //back button
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
         //menampilkan list doa
         showListDoa()
-
-        //menambah favorite doa
-        favoriteDoa()
     }
 
-    private fun favoriteDoa() {
-    }
-
+    //fungsi untuk menampilkan semua doa
     private fun showListDoa() {
-        var tvText: TextView = findViewById(R.id.tvResponseCode)
         var rvPost: RecyclerView = findViewById(R.id.rv_doa)
         rvPost.setHasFixedSize(true)
         rvPost.layoutManager = LinearLayoutManager(this)
@@ -49,12 +52,12 @@ class DoaActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ArrayList<DoaResponse>>, t: Throwable) {
-                tvText.text = t.message
-            }
 
+            }
         })
     }
 
+    //back button
     override fun onSupportNavigateUp(): Boolean {
         onBackPressed()
         return true

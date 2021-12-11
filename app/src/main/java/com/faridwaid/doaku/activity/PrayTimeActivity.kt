@@ -16,29 +16,44 @@ import java.util.*
 
 class PrayTimeActivity : AppCompatActivity() {
 
-    var calendar: Calendar = Calendar.getInstance()
+    //set titel
+    private var title: String = "Informasi Jadwal Sholat"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_pray_time)
 
+        //mendefiniskan action bar
+        val actionBar = supportActionBar
+        actionBar!!.title = title
+
+        //back button
+        actionBar.setDisplayHomeAsUpEnabled(true)
+
+        // menentuka nilai kota
         var etCity: TextView = findViewById(R.id.kota)
         etCity.text = "surabaya"
         val formatCity = "surabaya"
+
+        //set tanggal sekarang
         setDate()
         val dateTime = setDate()
         showListDoa(dateTime, formatCity)
+
+        //fungsi untuk ganti tanggal
         changeDate()
 
+        //ganti tanggal ketika button sudah diklik
         var btnChangeCity: Button = findViewById(R.id.btnGantiKota)
         btnChangeCity.setOnClickListener {
-            val formatCity = mantapJiwa()
+            val formatCity = changeCity()
             val date: TextView = findViewById(R.id.tanggal)
             val dateTime = date.text.toString()
             showListDoa(dateTime, formatCity)
         }
     }
 
+    //fungsi ganti tanggal
     private fun changeDate() {
         var btnChangeDate: TextView = findViewById(R.id.btnGantiTanggal)
         val myCalender = Calendar.getInstance()
@@ -47,29 +62,31 @@ class PrayTimeActivity : AppCompatActivity() {
             myCalender.set(Calendar.MONTH, month)
             myCalender.set(Calendar.DAY_OF_MONTH, dayOfMonth)
             updateCalender(myCalender)
-            val mantap = updateCalender(myCalender)
+            val updateNewDate = updateCalender(myCalender)
             val date: TextView = findViewById(R.id.kota)
             val formatCity = date.text.toString()
-            showListDoa(mantap, formatCity)
+            showListDoa(updateNewDate, formatCity)
         }
 
+        //ketika button di klik calender dialog akan muncul
         btnChangeDate.setOnClickListener {
             DatePickerDialog(this, datePicker, myCalender.get(Calendar.YEAR), myCalender.get(Calendar.MONTH),
                 myCalender.get(Calendar.DAY_OF_MONTH)).show()
         }
     }
 
-    private fun mantapJiwa(): String {
+    //fungsi ganti kota
+    private fun changeCity(): String {
         var etCity: TextView = findViewById(R.id.kota)
-        val alhamdulillah = etCity.text.toString()
-        return alhamdulillah
+        val updateCity = etCity.text.toString()
+        return updateCity
     }
 
     //fungsi hari dan tanggal
     private fun setDate(): String {
         val date: TextView = findViewById(R.id.tanggal)
 
-        // get the Long type value of the current system date
+        //mendifinisikan nilai calender dan menentukan format calender
         var calendar: Calendar = Calendar.getInstance()
         var simpleDateFormat2 = SimpleDateFormat("yyyy-MM-dd")
         var dateTime: String = simpleDateFormat2.format(calendar.time).toString()
@@ -77,6 +94,7 @@ class PrayTimeActivity : AppCompatActivity() {
         return dateTime
     }
 
+    //fungsi update calender
     private fun updateCalender(myCalender: Calendar): String {
         var tvDate: TextView = findViewById(R.id.tanggal)
         val format = "yyyy-MM-dd"
@@ -86,8 +104,10 @@ class PrayTimeActivity : AppCompatActivity() {
         return updateDate
     }
 
+    //fungsi untuk menampilkan semua data
     private fun showListDoa(formatDate: String, city: String) {
-        var tvText: TextView = findViewById(R.id.tvResponseCode)
+
+        //parameter yang diset dan digunakan untuk paremeter API
         val parameters = HashMap<String, String>()
         parameters["date"] = formatDate
         parameters["city"] = city
@@ -120,8 +140,14 @@ class PrayTimeActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<PrayTimeResponseOke>, t: Throwable) {
-                tvText.text = t.message
+
             }
         })
+    }
+
+    //fungsi untuk back button
+    override fun onSupportNavigateUp(): Boolean {
+        onBackPressed()
+        return true
     }
 }

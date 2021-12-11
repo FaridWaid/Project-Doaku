@@ -5,43 +5,41 @@
     android:layout_gravity="top"
     android:padding="15dp">
 
-    <androidx.cardview.widget.CardView
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp">
-
+        android:layout_height="match_parent" >
 
         <ImageView
             android:id="@+id/back_image"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:scaleX="7"
-            android:scaleY="8"
+            android:scaleY="6"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:src="@drawable/title_box_fix" />
 
         <TextView
             android:id="@+id/tv_title_note"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="20dp"
             android:textSize="16sp"
             android:textStyle="bold"
             android:textColor="@color/white"
-            android:gravity="center"
+            android:gravity="left"
+            android:maxLines="1"
+            android:ellipsize="end"
             android:layout_marginLeft="20dp"
-            android:layout_marginTop="35dp"
+            android:layout_marginRight="80dp"
+            android:layout_marginTop="20dp"
             android:text="Catatan" />
 
 
         <ImageView
-            android:id="@+id/favoritkan"
+            android:id="@+id/hapus"
             android:layout_width="match_parent"
             android:layout_height="80dp"
             android:src="@drawable/trash"
             android:layout_marginLeft="250dp"
-            android:layout_marginTop="10dp" />
-
-
-    </androidx.cardview.widget.CardView>
-
+            android:layout_marginTop="-10dp" />
+    </RelativeLayout>
 </FrameLayout>

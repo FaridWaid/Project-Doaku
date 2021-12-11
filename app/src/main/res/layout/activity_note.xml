@@ -10,13 +10,13 @@
     <ImageView
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:layout_marginTop="-120dp"
-        android:src="@drawable/title_box" />
+        android:layout_marginTop="-150dp"
+        android:src="@drawable/title" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="65dp"
+        android:layout_marginTop="35dp"
         android:gravity="center"
         android:text="Catatan"
         android:textColor="@color/black"
@@ -25,7 +25,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="130dp">
+        android:layout_marginTop="100dp">
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvNote"
@@ -48,8 +48,5 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:srcCompat="@drawable/ic_add" />
-
     </androidx.constraintlayout.widget.ConstraintLayout>
-
-
 </RelativeLayout>
